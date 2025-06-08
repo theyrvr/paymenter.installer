@@ -64,6 +64,7 @@ if [ "$configure_ssl" = "y" ]; then
     # Request SSL certificate with Certbot
     if [ "$use_certbot" = "y" ]; then
         certbot --nginx -d $domain
+        (crontab -l ; echo "0 23 * * * certbot renew --quiet --deploy-hook 'systemctl restart nginx'") | crontab -
     fi
 fi
 

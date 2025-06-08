@@ -184,7 +184,7 @@ echo "[Install]" >> $paymenter_service
 echo "WantedBy=multi-user.target" >> $paymenter_service
 
 # Enable and start the Paymenter service
-systemctl enable --now paymenter
+systemctl enable --now paymenter.service
 systemctl enable --now redis-server
 
 # Completion message
